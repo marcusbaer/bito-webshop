@@ -56,7 +56,7 @@ session_start();
     <header class="checkout-header">
         <div class="checkout-header-content">
             <span class="logo">Bito Webshop</span>
-            <a href="/src/cart.php" class="back-to-cart">
+            <a href="/cart.php" class="back-to-cart">
                 Zurück zum Warenkorb
             </a>
         </div>

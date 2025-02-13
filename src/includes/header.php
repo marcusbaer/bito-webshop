@@ -82,12 +82,12 @@ if (isset($_SESSION['cart'])) {
 <body>
     <header class="header">
         <div class="header-content">
-            <a href="/src/products.php" class="logo">Bito Webshop</a>
+            <a href="/products.php" class="logo">Bito Webshop</a>
             <nav class="nav-links">
-                <a href="/src/products.php" <?php echo $current_page == 'products.php' ? 'class="active"' : ''; ?>>
+                <a href="/products.php" <?php echo $current_page == 'products.php' ? 'class="active"' : ''; ?>>
                     Produkte
                 </a>
-                <a href="/src/cart.php" class="cart-link <?php echo $current_page == 'cart.php' ? 'active' : ''; ?>">
+                <a href="/cart.php" class="cart-link <?php echo $current_page == 'cart.php' ? 'active' : ''; ?>">
                     Warenkorb
                     <?php if ($cart_count > 0): ?>
                         <span class="cart-count"><?php echo $cart_count; ?></span>
