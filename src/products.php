@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once 'includes/session.php';
 
 // Connect to SQLite database
 $db = new SQLite3('products.db');
@@ -69,5 +69,7 @@ include 'includes/header.php';
         color: #007bff;
     }
 </style>
+
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

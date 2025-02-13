@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once 'includes/session.php';
 $sessionId = session_id();
 
 $db = new SQLite3('products.db');
@@ -261,5 +261,7 @@ include 'includes/header.php';
 </style>
 
 <script src="js/cart.js"></script>
+
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

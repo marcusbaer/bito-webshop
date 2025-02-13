@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once 'includes/session.php';
 
 $productId = $_POST['product_id'] ?? null;
 $quantity = $_POST['quantity'] ?? 1;

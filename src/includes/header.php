@@ -3,7 +3,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 $cart_count = 0;
 
 // Get cart count from session
-session_start();
+require_once 'session.php';
 if (isset($_SESSION['cart'])) {
     $cart_count = array_sum($_SESSION['cart']);
 }

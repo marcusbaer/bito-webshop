@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once 'includes/session.php';
 
 // Get the Product ID from the request
 $urlSlug = $_GET['id'] ?? '';
@@ -178,5 +178,7 @@ include 'includes/header.php';
         }
     }
 </style>
+
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>
