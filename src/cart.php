@@ -16,9 +16,11 @@ $result = $stmt->execute();
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Warenkorb</title>
 </head>
+
 <body>
     <h1>Warenkorb</h1>
     <?php while ($item = $result->fetchArray(SQLITE3_ASSOC)): ?>
@@ -28,6 +30,13 @@ $result = $stmt->execute();
             <p>Menge: <?php echo $item['quantity']; ?></p>
         </div>
     <?php endwhile; ?>
+
+    <div class="checkout-section">
+        <a href="checkout.php" class="checkout-button">
+            Zum Checkout
+        </a>
+        <a href="payment.php" class="checkout-button">Proceed to Payment</a>
+    </div>
 </body>
+
 </html>
-  
