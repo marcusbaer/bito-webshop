@@ -53,6 +53,36 @@ while ($item = $cartItems->fetchArray(SQLITE3_ASSOC)) {
             margin-top: 1em;
             text-align: right;
         }
+        #payment-button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        #payment-button:hover {
+            background-color: #45a049;
+        }
+        #payment-error {
+            display: none;
+            color: red;
+            margin: 1em 0;
+            padding: 1em;
+            border: 1px solid red;
+            background-color: #fff5f5;
+        }
+        .fallback-payment {
+            display: none;
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
@@ -75,36 +105,64 @@ while ($item = $cartItems->fetchArray(SQLITE3_ASSOC)) {
         </div>
     </div>
 
-    <form action="process_order.php" method="POST">
-        <h2>Rechnungsadresse</h2>
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-            <label for="street">Straße:</label>
-            <input type="text" id="street" name="street" required>
-        </div>
-        <div>
-            <label for="city">Stadt:</label>
-            <input type="text" id="city" name="city" required>
-        </div>
-        <div>
-            <label for="zip">PLZ:</label>
-            <input type="text" id="zip" name="zip" required>
-        </div>
+    <div id="payment-error"></div>
+    <button id="payment-button">Jetzt bezahlen</button>
 
-        <h2>Zahlungsart</h2>
-        <div>
-            <select name="payment_method" required>
-                <option value="invoice">Rechnung</option>
-                <option value="paypal">PayPal</option>
-                <option value="visa">VISA</option>
-                <option value="mastercard">Mastercard</option>
-            </select>
-        </div>
+    <!-- Fallback payment form for unsupported browsers -->
+    <div class="fallback-payment" id="fallback-payment">
+        <h2>Alternative Zahlungsmethode</h2>
+        <p>Ihr Browser unterstützt leider keine moderne Zahlungsabwicklung. Bitte nutzen Sie das folgende Formular:</p>
+        <form action="process_order.php" method="POST">
+            <h3>Rechnungsadresse</h3>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="street">Straße:</label>
+                <input type="text" id="street" name="street" required>
+            </div>
+            <div>
+                <label for="city">Stadt:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div>
+                <label for="zip">PLZ:</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+            <button type="submit">Bestellung abschließen</button>
+        </form>
+    </div>
 
-        <button type="submit">Bestellung abschließen</button>
-    </form>
+    <script src="js/payment-request.js"></script>
+    <script>
+        // Initialize payment handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItems = <?php echo json_encode($items); ?>;
+            const total = <?php echo $total; ?>;
+            
+            const payment = new WebshopPayment(cartItems, total);
+            const paymentButton = document.getElementById('payment-button');
+            const fallbackPayment = document.getElementById('fallback-payment');
+
+            // Check for Payment Request API support
+            if (window.PaymentRequest) {
+                paymentButton.addEventListener('click', () => {
+                    payment.initializePayment().catch(error => {
+                        console.error('Payment failed:', error);
+                        fallbackPayment.style.display = 'block';
+                    });
+                });
+            } else {
+                // Show fallback payment form if Payment Request API is not supported
+                paymentButton.style.display = 'none';
+                fallbackPayment.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
