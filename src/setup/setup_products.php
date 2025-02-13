@@ -33,6 +33,7 @@ try {
         [generateUrlSlug('Laptop Pro'), 'Laptop Pro', 1299.99, 1199.99, 'High-performance laptop', 'sofort lieferbar'],
         [generateUrlSlug('Wireless Mouse'), 'Wireless Mouse', 29.99, 24.99, 'Ergonomic wireless mouse', 'sofort lieferbar'],
         [generateUrlSlug('Gaming Monitor'), 'Gaming Monitor', 499.99, 449.99, '27-inch 4K display', 'lieferbar in 1-3 Werktagen'],
+        [generateUrlSlug('Test Product'), 'Test Product', 0.01, 0.01, 'A test product with minimal price', 'sofort lieferbar'],
         // Add more products to reach 20 items
     ];
 
