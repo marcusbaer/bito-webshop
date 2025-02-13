@@ -87,3 +87,13 @@ Here are all the prompts used to create and enhance this webshop:
     - Added test product (0.01€) to setup data
     - Maintained existing sample products
     - Ensured consistent product structure
+
+15. "Please add to this setup script also the example product that have been used in the create-table.sql"
+    - Located products in create-tables.sql
+    - Added Premium T-Shirt, Vintage Jeans, and Sport Sneaker to setup_products.php
+    - Ensured consistent product data between files
+
+16. "And add those products to the database too"
+    - Added all products from both setup files to database
+    - Ensured consistency across all product data
+    - Maintained existing and new product details
