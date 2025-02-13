@@ -38,3 +38,52 @@ Here are all the prompts used to create and enhance this webshop:
    - Created this Prompts section
    - Documented all previous prompts and their implementations
    - Set up structure for future prompt documentation
+
+6. "Fix links in header navigation as they are set to main pages in `src` folder. But this subfolder is not used"
+   - Updated header.php navigation links
+   - Updated checkout-header.php navigation links
+   - Removed incorrect /src/ references
+
+7. "Add a new example product into the shop with a price of only 0.01 €"
+   - Added test product with minimal price
+   - Set up product details and availability
+   - Ensured proper price formatting
+
+8. "When I am clicking on 'Jetzt bezahlen', I get the following error: 'Payment failed: The payment method 'basic-card' is not supported.'"
+   - Implemented multiple payment methods (Google Pay, Apple Pay)
+   - Added better error handling
+   - Updated payment flow
+   - Added merchant ID placeholders
+
+9. "I'd like you to implement all of your suggested options, a fallback payment form, specific error messages and PayPal as an additional payment method"
+   - Added comprehensive payment solution
+   - Implemented PayPal integration
+   - Created fallback credit card form
+   - Added method-specific error handling
+
+10. "footer.php is missing. What is it for?"
+    - Created responsive footer.php
+    - Added three main sections (About Us, Legal, Contact)
+    - Implemented consistent styling
+    - Added dynamic year in copyright
+
+11. "But the include seems to be broken. it tries to include `includes/footer.php` but it is on root level"
+    - Moved footer.php to correct location
+    - Updated all page includes
+    - Fixed path references
+
+12. "Regarding payment, I don't see anymore the Payment Request API integrated. I only see Google Pay and the alternative payment method"
+    - Restored Payment Request API as primary payment method
+    - Maintained Google Pay and Apple Pay integration
+    - Kept PayPal and fallback form
+    - Updated error handling
+
+13. "I get 'ignoring session_start ...' error"
+    - Created centralized session handling
+    - Updated files to use session include
+    - Prevented duplicate session starts
+
+14. "My recently added example product needs to be added to the sample product data in the setup script as well"
+    - Added test product (0.01€) to setup data
+    - Maintained existing sample products
+    - Ensured consistent product structure
