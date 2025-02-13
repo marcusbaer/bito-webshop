@@ -1,5 +1,5 @@
 // PayPal Configuration
-export const PAYPAL_CLIENT_ID = 'YOUR_PAYPAL_CLIENT_ID';
+export const PAYPAL_CLIENT_ID = 'AZQt9GIKFIvyYGSCu_yBDxVggNIJGDVF-xGH6rRorQEZG8fPvRGSDiamYatIxrm1Cu9CFxYkMZtoSqKK';
 export const PAYPAL_CURRENCY = 'EUR';
 export const PAYPAL_INTENT = 'capture';
 

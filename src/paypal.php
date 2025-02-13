@@ -18,7 +18,7 @@ $total = $result->fetchArray(SQLITE3_ASSOC)['total'];
 
 // PayPal Configuration
 $paypal_config = [
-    'client_id' => 'YOUR_PAYPAL_CLIENT_ID',
+    'client_id' => 'AZQt9GIKFIvyYGSCu_yBDxVggNIJGDVF-xGH6rRorQEZG8fPvRGSDiamYatIxrm1Cu9CFxYkMZtoSqKK',
     'client_secret' => 'YOUR_PAYPAL_SECRET',
     'environment' => 'sandbox' // Change to 'production' for live
 ];

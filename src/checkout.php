@@ -45,7 +45,7 @@ include 'includes/checkout-header.php';
     <link rel="stylesheet" href="/css/styles.css">
     
     <!-- PayPal SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=EUR"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZQt9GIKFIvyYGSCu_yBDxVggNIJGDVF-xGH6rRorQEZG8fPvRGSDiamYatIxrm1Cu9CFxYkMZtoSqKK&currency=EUR"></script>
 </head>
 <body>
     <main class="checkout-page">
