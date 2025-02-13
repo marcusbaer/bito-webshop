@@ -33,6 +33,9 @@ try {
         [generateUrlSlug('Laptop Pro'), 'Laptop Pro', 1299.99, 1199.99, 'High-performance laptop', 'sofort lieferbar'],
         [generateUrlSlug('Wireless Mouse'), 'Wireless Mouse', 29.99, 24.99, 'Ergonomic wireless mouse', 'sofort lieferbar'],
         [generateUrlSlug('Gaming Monitor'), 'Gaming Monitor', 499.99, 449.99, '27-inch 4K display', 'lieferbar in 1-3 Werktagen'],
+        [generateUrlSlug('Premium T-Shirt'), 'Premium T-Shirt', 29.99, 24.99, 'Hochwertiges T-Shirt aus 100% Baumwolle', 'sofort lieferbar'],
+        [generateUrlSlug('Vintage Jeans'), 'Vintage Jeans', 89.99, 89.99, 'Klassische Jeans im Vintage-Look', 'sofort lieferbar'],
+        [generateUrlSlug('Sport Sneaker'), 'Sport Sneaker', 79.99, 69.99, 'Leichte Sneaker für optimalen Komfort', 'sofort lieferbar'],
         [generateUrlSlug('Test Product'), 'Test Product', 0.01, 0.01, 'A test product with minimal price', 'sofort lieferbar'],
         // Add more products to reach 20 items
     ];
