@@ -97,3 +97,16 @@ Here are all the prompts used to create and enhance this webshop:
     - Added all products from both setup files to database
     - Ensured consistency across all product data
     - Maintained existing and new product details
+
+17. "Create an index file featuring the two most recent products, and including some marketing text to promote the webshop"
+    - Created hero section with welcome message and CTA
+    - Added value propositions section
+    - Implemented featured products display
+    - Created marketing banner
+    - Added responsive styling
+
+18. "Move index.php into src folder"
+    - Moved index.php from root to src/ directory
+    - Updated relative paths
+    - Ensured correct navigation links
+    - Maintained file structure organization
