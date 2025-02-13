@@ -5,10 +5,32 @@ class WebshopPayment {
         this.total = total;
         this.supportedPaymentMethods = [
             {
-                supportedMethods: 'basic-card',
+                supportedMethods: "https://google.com/pay",
                 data: {
-                    supportedNetworks: ['visa', 'mastercard'],
-                    supportedTypes: ['credit', 'debit']
+                    environment: "TEST",
+                    apiVersion: 2,
+                    apiVersionMinor: 0,
+                    merchantInfo: {
+                        merchantId: "BCR2DN4TQPBGYYK6",  // Test merchant ID
+                        merchantName: "Bito Webshop"
+                    },
+                    allowedPaymentMethods: [{
+                        type: "CARD",
+                        parameters: {
+                            allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+                            allowedCardNetworks: ["VISA", "MASTERCARD"]
+                        }
+                    }]
+                }
+            },
+            {
+                supportedMethods: "https://apple.com/apple-pay",
+                data: {
+                    version: 3,
+                    merchantIdentifier: "merchant.com.bito.webshop",
+                    merchantCapabilities: ["supports3DS"],
+                    supportedNetworks: ["visa", "masterCard"],
+                    countryCode: "DE"
                 }
             }
         ];
@@ -54,8 +76,19 @@ class WebshopPayment {
             this.createPaymentOptions()
         );
 
+        // Check if payment can be made
+        try {
+            const canMakePayment = await request.canMakePayment();
+            if (!canMakePayment) {
+                throw new Error('No supported payment methods available');
+            }
+        } catch (error) {
+            console.error('canMakePayment error:', error);
+            this.handlePaymentError(error);
+            return;
+        }
+
         request.addEventListener('shippingaddresschange', event => {
-            // Handle shipping address changes if needed
             event.updateWith(this.createPaymentDetails());
         });
 
@@ -85,11 +118,7 @@ class WebshopPayment {
             },
             body: JSON.stringify({
                 paymentMethod: paymentResponse.methodName,
-                paymentDetails: {
-                    cardNumber: paymentResponse.details.cardNumber,
-                    expiryMonth: paymentResponse.details.expiryMonth,
-                    expiryYear: paymentResponse.details.expiryYear,
-                },
+                paymentDetails: paymentResponse.details,
                 shippingAddress: paymentResponse.shippingAddress,
                 payerName: paymentResponse.payerName,
                 payerEmail: paymentResponse.payerEmail,
